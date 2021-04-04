@@ -4,6 +4,15 @@
     "editor.tabSize": 4,
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "sqltools.connections": [
+      {
+        "previewLimit": 50,
+        "driver": "SQLite",
+        "name": "twitter",
+        "database": "${workspaceFolder:twitter-clone}/src/db.sqlite3"
+      }
+    ],
+    "sqltools.useNodeRuntime": true
   }
   
