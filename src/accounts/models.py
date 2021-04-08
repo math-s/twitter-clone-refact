@@ -16,7 +16,6 @@ class User(AbstractBaseUser):
     nick = models.CharField("Nome", max_length=20)
     created = models.DateTimeField("Data de criação", auto_now_add=True)
     updated = models.DateTimeField("Data de modificação", auto_now=True)
-    followers = models.ManyToManyField("accounts.User")
 
     objects = CustomUserManager()
 
@@ -33,3 +32,14 @@ class User(AbstractBaseUser):
 
     def get_short_name(self):
         return self.nick
+
+
+class Follow(models.Model):
+    from_user = models.ForeignKey(
+        "accounts.User",
+        on_delete=models.CASCADE,
+        related_name="follow")
+    to_user = models.ForeignKey(
+        "accounts.User",
+        on_delete=models.CASCADE,
+        related_name="followers")
